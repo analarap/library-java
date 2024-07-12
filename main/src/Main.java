@@ -50,11 +50,18 @@ public class Main {
                 System.out.print("\nStatus: ");
                 String statusStr = sc.nextLine();
 
-                status = BookStatus.valueOf(statusStr.toUpperCase());
+                if (statusStr.equals("AVALIABLE") || statusStr.equals("UNAVALIABLE")) {
+                    status = BookStatus.valueOf(statusStr.toUpperCase());
 
-                Book newBook = new Book(name, author, pages, price, status);
-                books.add(newBook);
-                System.out.println("Book added successfully!");
+                    Book newBook = new Book(name, author, pages, price, status);
+                    books.add(newBook);
+                    System.out.println("Book added successfully!");
+                    System.out.println(books);
+
+                } else {
+                    System.out.println("This status do not exist! Try again :/");
+                }
+
                 break;
 
             case 5:
@@ -67,7 +74,6 @@ public class Main {
 
         }
 
-        System.out.println(books);
 
 
         sc.close();
