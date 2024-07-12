@@ -1,21 +1,20 @@
 package entities;
 
+import entities.enums.BookStatus;
+
 public class Book {
     private String name;
-    private String description;
-    private Author author;
+    private String author;
     private int pages;
-    private double value;
+    private double price;
+    private BookStatus status;
 
-    public Book(){
-    }
-
-    public Book(String name, String description, Author author, int pages, double value) {
+    public Book(String name, String author, int pages, double value, BookStatus status) {
         this.name = name;
-        this.description = description;
         this.author = author;
         this.pages = pages;
-        this.value = value;
+        this.price = value;
+        this.status = status;
     }
 
     public String getName() {
@@ -26,19 +25,11 @@ public class Book {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Author getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -51,11 +42,31 @@ public class Book {
     }
 
     public double getValue() {
-        return value;
+        return price;
     }
 
     public void setValue(double value) {
-        this.value = value;
+        this.price = value;
+    }
+
+    public BookStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookStatus status) {
+        this.status = status;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", pages=" + pages +
+                ", price=" + price +
+                ", status=" + status +
+                '}';
     }
 }
 
