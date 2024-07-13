@@ -1,6 +1,7 @@
 package entities;
 
 import entities.enums.BookStatus;
+import exception.BookException;
 
 public class Book {
     private String name;
@@ -56,6 +57,16 @@ public class Book {
     public void setStatus(BookStatus status) {
         this.status = status;
 
+    }
+
+    public static BookStatus statusValidate(String statusStr) {
+        try {
+            BookStatus status = BookStatus.valueOf(statusStr);
+            System.out.println("Status is valid and set successfully!");
+            return status;
+        } catch (IllegalArgumentException err) {
+            throw new BookException("This status does not exist! Try again :/");
+        }
     }
 
     @Override
